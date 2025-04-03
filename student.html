@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="student.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Graphs -->
+</head>
+
+
+<body>
+<div class="dashboard">
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Library Logo">
+        </div>
+        <h1>Student Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">My Books</a></li>
+                <li><a href="#">Search Books</a></li>
+                <li><a href="#">Issued Books</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="sections-container">
+            <!-- Student Info Section -->
+            <section class="student-info">
+                <h3>Student Information</h3>
+                <div class="student-card">
+
+                    <div>
+                        <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Student ID:</strong> 12345</p>
+                        <p><strong>Status:</strong> Active</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Issue Book Section -->
+            <section class="book-action">
+                <h3>Issue Book</h3>
+                <button>Issue Book</button>
+            </section>
+
+            <!-- Return Book Section -->
+            <section class="book-action">
+                <h3>Return Book</h3>
+                <button>Return Book</button>
+            </section>
+
+            <!-- Fine Payment Section -->
+            <section class="fine-payment">
+                <h3>Fine Payment</h3>
+                <div class="fine-info">
+                    <p>Overdue Fines: <strong>$10</strong></p>
+                    <button>Pay Fine</button>
+                </div>
+            </section>
+
+            <!-- Due Date Reminder Section -->
+            <section class="due-dates">
+                <h3>Due Date Reminders</h3>
+                <ul>
+                    <li>Book 1: Due in 2 days</li>
+                    <li>Book 2: Due in 5 days</li>
+                </ul>
+            </section>
+
+            <!-- Student Activity Graph -->
+            <section class="activity-graph">
+                <h3>Activity Overview</h3>
+                <canvas id="activityChart"></canvas> <!-- Placeholder for Graph -->
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 RAIT Library. All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    // Chart.js example to generate activity graph
+    var ctx = document.getElementById('activityChart').getContext('2d');
+    var activityChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Books Borrowed',
+                data: [5, 7, 3, 6, 8, 10],
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
